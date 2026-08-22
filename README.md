@@ -6,8 +6,9 @@ assignment.
 
 | | |
 | --- | --- |
-| **Live demo — landing page (Part 2)** | _deploy URL goes here_ |
-| **Live demo — chat app (Part 1)** | _deploy URL_`/login` |
+| **Live demo — landing page (Part 2)** | https://relay-chat-theta.vercel.app |
+| **Live demo — chat app (Part 1)** | https://relay-chat-theta.vercel.app/login |
+| **Repository** | https://github.com/Atik1000/relay-chat |
 | **API documentation (Part 1)** | [`docs/API.md`](docs/API.md) |
 | **API probe script** | [`scripts/probe-api.mjs`](scripts/probe-api.mjs) |
 
@@ -44,6 +45,11 @@ NEXT_PUBLIC_API_ORIGIN=https://frontend-task-chatapp.onrender.com
 ```
 
 There is no signup step — sign in with any phone number and a display name.
+
+> **Note on the first load.** The upstream API is hosted on Render's free tier,
+> so if it has been idle the first request wakes it up and can take around 50
+> seconds. Subsequent requests are fast. This is the server cold-starting, not
+> the client hanging.
 
 ### Routes
 

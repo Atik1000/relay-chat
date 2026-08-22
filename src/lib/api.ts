@@ -1,9 +1,24 @@
 import type { Conversation, Message, Session, User } from "./types";
 import { normalizeConversation, normalizeMessage } from "./normalize";
 
-export const API_ORIGIN =
-  process.env.NEXT_PUBLIC_API_ORIGIN ??
-  "https://frontend-task-chatapp.onrender.com";
+const DEFAULT_API_ORIGIN = "https://frontend-task-chatapp.onrender.com";
+
+/**
+ * Origin of the chat API — REST lives at `<origin>/api`, the socket at the root.
+ *
+ * The env var must be referenced as a complete `process.env.NEXT_PUBLIC_*`
+ * expression for Next to inline it at build time.
+ *
+ * Falls back when the variable is missing *or blank*. `??` alone is not enough:
+ * an env var that exists but is empty (easy to do in a hosting dashboard) would
+ * make this an empty string, collapsing the base URL to a relative `/api` and
+ * silently sending every request to whatever host the app is served from
+ * instead of to the chat server. Any trailing slash is stripped so a pasted
+ * `https://host/` cannot produce `https://host//api`.
+ */
+export const API_ORIGIN = (
+  process.env.NEXT_PUBLIC_API_ORIGIN?.trim() || DEFAULT_API_ORIGIN
+).replace(/\/+$/, "");
 
 const BASE = `${API_ORIGIN}/api`;
 

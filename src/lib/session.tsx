@@ -12,7 +12,8 @@ import { useRouter } from "next/navigation";
 import { api, setAuthFailureHandler } from "./api";
 import type { Session, User } from "./types";
 
-const STORAGE_KEY = "relay.session";
+/** Shared so the landing page can check for a session without mounting the provider. */
+export const STORAGE_KEY = "relay.session";
 
 type SessionValue = {
   session: Session | null;

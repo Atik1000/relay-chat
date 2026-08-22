@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LiveDemo } from "@/components/landing/LiveDemo";
 import { ScrollLab } from "@/components/landing/ScrollLab";
+import { ClosingCta, HeaderCta, HeroCta } from "@/components/landing/SessionCta";
 
 const FEATURES = [
   {
@@ -58,25 +59,7 @@ export default function LandingPage() {
               around while you are reading it.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Link
-                href="/login"
-                className="rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:brightness-110"
-              >
-                Open Relay
-              </Link>
-              <a
-                href="#scroll-lab"
-                className="rounded-xl border border-line px-5 py-3 text-sm font-semibold text-ink-muted transition hover:bg-surface hover:text-ink"
-              >
-                Try the scroll demo
-              </a>
-            </div>
-
-            <p className="mt-4 text-xs text-ink-faint">
-              Sign in with any phone number and a display name — a new number
-              creates an account.
-            </p>
+            <HeroCta />
           </div>
 
           <div className="flex justify-center lg:justify-end">
@@ -188,19 +171,7 @@ export default function LandingPage() {
           className="pointer-events-none absolute left-1/2 top-1/2 size-[36rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand/15 blur-[120px]"
         />
         <div className="relative mx-auto max-w-2xl text-center">
-          <h2 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-            Start a conversation
-          </h2>
-          <p className="mt-4 text-pretty text-ink-muted">
-            No password and no signup form. Enter a phone number and the name you
-            want people to see.
-          </p>
-          <Link
-            href="/login"
-            className="mt-8 inline-block rounded-xl bg-brand px-6 py-3.5 text-sm font-semibold text-white transition hover:brightness-110"
-          >
-            Open Relay
-          </Link>
+          <ClosingCta />
         </div>
       </section>
 
@@ -228,12 +199,7 @@ function SiteHeader() {
           </span>
           Relay
         </Link>
-        <Link
-          href="/login"
-          className="rounded-lg bg-surface-2 px-3.5 py-2 text-xs font-semibold text-ink transition hover:bg-line"
-        >
-          Open app
-        </Link>
+        <HeaderCta />
       </div>
     </header>
   );
